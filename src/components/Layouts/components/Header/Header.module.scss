@@ -19,6 +19,18 @@
     align-items: center;
     justify-content: space-between;
 }
+.search,
+.search-result {
+    width: 361px;
+}
+.search-title {
+    height: 30px;
+    padding: 5px 12px;
+    font-size: 1.4rem;
+    line-height: 20px;
+    font-weight: 600;
+    color: rgba(22, 24, 35, 0.5);
+}
 .search {
     align-items: center;
     background: rgba(22, 24, 35, 0.06);
@@ -28,13 +40,13 @@
     z-index: 1;
     margin: 0;
     padding-left: 16px;
-    width: 361px;
     height: var(--search-height);
     display: flex;
     border: 1.5px solid transparent;
     &:focus-within {
         border-color: rgba(22, 24, 35, 0.06);
     }
+
     input {
         width: 292px;
         height: 100%;
@@ -56,6 +68,7 @@
         right: var(--search-btn-width);
     }
 }
+
 .clear,
 .loading {
     position: absolute;
