@@ -29,6 +29,9 @@ input,
     outline: none;
     border: none;
 }
+button {
+    font-family: 'Roboto', sans-serif;
+}
 a[href] {
     color: var(--text-color);
     text-decoration: none;

@@ -1,6 +1,15 @@
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faMagnifyingGlass, faSpinner, faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCircleXmark,
+    faMagnifyingGlass,
+    faSpinner,
+    faPlus,
+    faEllipsisVertical,
+    faLanguage,
+    faCircleQuestion,
+    faMoon,
+} from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 
@@ -9,12 +18,34 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Button from '~/components/Button';
 import AccountItem from '~/components/AccountItem';
+import Menu from '~/components/Popper/Menu';
+import { faKeyboard } from '@fortawesome/free-regular-svg-icons';
+
+const MENU_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faLanguage} />,
+        title: 'Languge',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        title: 'Feedback and help',
+        to: '/feedback',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        title: 'Keyboard shortcuts',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faMoon} />,
+        title: 'Dark mode',
+    },
+];
 const cx = classNames.bind(styles);
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
     useEffect(() => {
         setTimeout(() => {
-            setSearchResult([]);
+            setSearchResult([1, 2]);
         }, 0);
     }, []);
     return (
@@ -22,6 +53,7 @@ function Header() {
             <div className={cx('content')}>
                 <img src={images.logo} alt="Tiktok" />
                 <Tippy
+                    interactive
                     visible={searchResult.length > 0}
                     render={(attrs) => (
                         <div className={cx('search-result')} tabIndex="-1" {...attrs}>
@@ -52,10 +84,14 @@ function Header() {
                         Tải lên
                     </Button>
                     <Button primary>Đăng nhập</Button>
+                    <Menu items={MENU_ITEMS}>
+                        <button className={cx('more-btn')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>
     );
 }
-
 export default Header;
