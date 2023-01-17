@@ -12,6 +12,8 @@
     padding-bottom: 8px;
 }
 .menu-item {
+    display: flex;
+    justify-content: space-between;
     font-weight: 500;
     width: 100%;
     justify-content: flex-start;
@@ -22,4 +24,27 @@
     &:hover {
         background: rgba(22, 24, 35, 0.03);
     }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 50px;
+}
+.back-btn {
+    height: 100%;
+    width: 25%;
+    font-size: 1.8rem;
+    margin-left: 12px;
+    cursor: pointer;
+    background-color: transparent;
+}
+.title-header {
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 22px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
